@@ -1127,9 +1127,8 @@
 .marquee-band-main {
   z-index: 2;
   rotate: -4deg;
-  background: var(--accent);
-  color: var(--ink);
-  box-shadow: 0 20px 60px -20px color-mix(in srgb, var(--accent) 60%, transparent);
+  background: var(--surface);
+  color: var(--text);
 }
 .marquee-band-cross {
   rotate: 3.5deg;
@@ -1296,8 +1295,6 @@
   height: 8px;
   border-radius: 50%;
   background: var(--accent);
-  box-shadow: 0 0 12px var(--accent);
-  animation: drum-pulse 1.2s ease-in-out infinite;
 }
 .drum-category [data-drum-category] {
   color: var(--accent);
@@ -1359,7 +1356,6 @@
 }
 .skill-drum li[data-active] {
   color: var(--accent);
-  text-shadow: 0 0 40px color-mix(in srgb, var(--accent) 45%, transparent);
 }
 @media screen {
   [data-studio-motion='on'] .drum-track {
@@ -1378,7 +1374,6 @@
     display: flex !important;
   }
   [data-studio-motion='on'] .badge-disc {
-    animation: badge-spin 1.8s linear infinite;
   }
 }
 @keyframes badge-spin {
@@ -1672,7 +1667,6 @@
   margin-right: 8px;
   border-radius: 50%;
   background: var(--accent);
-  box-shadow: 0 0 10px var(--accent);
 }
 .session-foot {
   display: flex;
@@ -1912,7 +1906,6 @@
     var(--accent),
     color-mix(in srgb, var(--accent) 40%, transparent)
   );
-  box-shadow: 0 0 12px color-mix(in srgb, var(--accent) 60%, transparent);
   transform-origin: top;
 }
 .timeline-company {
@@ -1938,7 +1931,6 @@
 }
 .timeline-company[data-current] .timeline-node {
   background: var(--accent);
-  box-shadow: 0 0 0 6px color-mix(in srgb, var(--accent) 18%, transparent);
 }
 .timeline-company-head {
   display: flex;
@@ -2036,11 +2028,9 @@
   background: var(--border);
 }
 [data-studio-motion='on'] .timeline-company[data-current][data-reached] > .timeline-node {
-  animation: timeline-pulse 2s ease-in-out infinite;
 }
 @keyframes timeline-pulse {
   50% {
-    box-shadow: 0 0 0 10px color-mix(in srgb, var(--accent) 8%, transparent);
   }
 }
 
@@ -2298,10 +2288,7 @@
 .editor-preview {
   position: relative;
   overflow: hidden;
-  background:
-    radial-gradient(circle at 50% 62%, #d6ac7330, transparent 62%),
-    repeating-linear-gradient(0deg, #ffffff07 0 1px, transparent 1px 32px),
-    repeating-linear-gradient(90deg, #ffffff07 0 1px, transparent 1px 32px), #0f0e0d;
+  background: #141210;
 }
 .editor-preview .guitar-world {
   top: 0;
@@ -2317,22 +2304,22 @@
   z-index: 2;
   top: 12px;
   left: 12px;
-  padding: 3px 10px;
-  border-radius: 999px;
+  padding: 4px 8px;
+  border-radius: 4px;
   background: #ffffff0f;
   color: var(--tok-p);
-  font-size: 11px;
+  font-size: 12px;
 }
 .editor-status {
   display: flex;
   align-items: center;
-  gap: 18px;
-  height: 26px;
+  gap: 16px;
+  height: 32px;
   /* Clears the record sticker on the bottom-left corner. */
   padding: 0 14px 0 78px;
   background: var(--tok-k);
   color: #18140f;
-  font-size: 11px;
+  font-size: 12px;
 }
 .editor-status span:last-child {
   margin-left: auto;
@@ -2380,7 +2367,6 @@
   font:
     600 clamp(13px, 1.3vw, 18px) var(--font-geist-mono),
     monospace;
-  text-shadow: 0 0 14px color-mix(in srgb, var(--accent) 55%, transparent);
 }
 .flying-note > span {
   display: inline-block;
@@ -2490,4 +2476,18 @@
   .terminal-interlude {
     display: none !important;
   }
+}
+/* The instrument and scroll interaction carry the expression, not a color wash. */
+.stage-glow {
+  display: none;
+}
+.marquee-band-main {
+  border-block: 1px solid var(--border);
+}
+.skill-drum li[data-active] {
+  text-shadow: none;
+}
+.session-current::before {
+  width: 6px;
+  height: 6px;
 }

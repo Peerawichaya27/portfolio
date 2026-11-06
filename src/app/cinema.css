@@ -6,7 +6,7 @@
   z-index: 1000;
   overflow: hidden;
   color: #efe9de;
-  background: radial-gradient(ellipse at 50% 45%, #15120f, #050403 75%);
+  background: #0c0b0a;
   will-change: clip-path;
 }
 html[data-intro] .film-intro {
@@ -79,7 +79,6 @@ html[data-intro='play'] .film-intro {
   inset: 0;
   border-radius: inherit;
   background: linear-gradient(90deg, #d6ac73, #f4dcb3);
-  box-shadow: 0 0 12px #d6ac73aa;
   transform: scaleX(var(--load, 0));
   transform-origin: left;
 }
@@ -104,7 +103,6 @@ html[data-intro='play'] .film-intro {
     #d6ac7399 88%,
     transparent
   );
-  box-shadow: 0 0 14px #d6ac7366;
   opacity: 0.55;
   transform: scaleX(0);
   transform-origin: left center;
@@ -121,11 +119,11 @@ html[data-intro='play'] .film-intro {
 .film-presents,
 .film-role {
   font:
-    clamp(11px, 1.1vw, 13px) var(--font-geist-mono),
+    12px var(--font-geist-mono),
     var(--font-thai),
     monospace;
-  letter-spacing: 0.32em;
-  text-transform: uppercase;
+  letter-spacing: 0;
+  text-transform: none;
   color: #b3aa9d;
 }
 .film-role {
@@ -139,11 +137,8 @@ html[data-intro='play'] .film-intro {
   font-size: clamp(40px, 8.4vw, 144px);
   font-weight: 500;
   line-height: 0.95;
-  text-transform: uppercase;
+  text-transform: none;
   color: #f6efe3;
-  text-shadow:
-    0 0 60px #000,
-    0 0 30px #d6ac7333;
 }
 .film-word {
   display: inline-flex;
@@ -155,7 +150,6 @@ html[data-intro='play'] .film-intro {
 .film-char[data-state='scramble'] {
   color: #d6ac73;
   font-family: var(--font-geist-mono), monospace;
-  text-shadow: 0 0 18px #d6ac73aa;
 }
 .film-rule {
   display: block;
@@ -170,11 +164,11 @@ html[data-intro='play'] .film-intro {
   grid-template: 1fr 1fr / 1fr 1fr;
   color: #8f877b;
   font:
-    11px var(--font-geist-mono),
+    12px var(--font-geist-mono),
     var(--font-thai),
     monospace;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
+  letter-spacing: 0;
+  text-transform: none;
   pointer-events: none;
   opacity: 0;
 }
@@ -212,7 +206,6 @@ html[data-intro='play'] .film-intro {
   inset: -100%;
   pointer-events: none;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-  animation: grain 0.6s steps(6) infinite;
 }
 .film-grain {
   opacity: 0.12;
@@ -251,14 +244,14 @@ html[data-intro='play'] .film-intro {
   min-height: 44px;
   padding: 10px 18px;
   border: 1px solid #efe9de33;
-  border-radius: 999px;
+  border-radius: 8px;
   background: #0c0b0a99;
   color: #efe9de;
   font:
     12px var(--font-geist-mono),
     var(--font-thai),
     monospace;
-  letter-spacing: 0.08em;
+  letter-spacing: 0;
   backdrop-filter: blur(6px);
 }
 .film-skip:hover {
@@ -319,7 +312,6 @@ main {
 .scroll-progress {
   height: 2px;
   background: linear-gradient(90deg, var(--accent), #fff1d6);
-  box-shadow: 0 0 12px var(--accent);
 }
 
 @media (max-width: 760px) {
@@ -574,8 +566,19 @@ main {
   line-height: 1.6;
 }
 .film-intro :is(.film-kicker, .film-role, .film-presents):lang(th) {
-  letter-spacing: 0.08em;
+  letter-spacing: 0;
 }
 .mobile-menu-links a:lang(th) {
   line-height: 1.4;
+}
+/* Grain and scanlines compete with readable text; the opening stays animated. */
+.page-grain,
+.film-grain,
+.film-scan {
+  display: none;
+}
+.film-skip {
+  backdrop-filter: none;
+  background: #0c0b0a;
+  padding: 12px 16px;
 }

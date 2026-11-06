@@ -23,7 +23,7 @@ const LINES: Line[] = [
   { kind: 'out', text: 'TypeScript  React  Node.js  NestJS  PostgreSQL  Kubernetes' },
   { kind: 'cmd', text: '$ git log --reverse --format="%as  %s"' },
   ...log,
-  { kind: 'cmd', text: '$ npm run build' },
+  { kind: 'cmd', text: '$ yarn build' },
   { kind: 'dim', text: '> next build' },
   { kind: 'ok', text: '✓ Compiled successfully' },
   { kind: 'cmd', text: '$ ' },

@@ -21,7 +21,7 @@ const TOKENS = [
 ];
 const STREAM = 14;
 
-/** Code tokens drift up out of the guitar on screen; clicks and each strum release a burst. */
+/** Short code-particle bursts respond to the opening guitar and explicit strums. */
 export function FlyingCode() {
   const host = useRef<HTMLDivElement>(null);
 
@@ -48,48 +48,8 @@ export function FlyingCode() {
       };
     };
 
-    const loops: gsap.core.Animation[] = [];
-    const context = gsap.context(() => {
-      notes.forEach((note, index) => {
-        const sway = gsap.to(note.firstElementChild, {
-          xPercent: () => random(-90, 90),
-          duration: () => random(0.9, 1.6),
-          ease: 'sine.inOut',
-          yoyo: true,
-          repeat: -1,
-          repeatRefresh: true,
-        });
-        const rise = gsap
-          .timeline({
-            repeat: -1,
-            repeatRefresh: true,
-            repeatDelay: random(0.2, 1.4),
-            delay: index * 0.38,
-          })
-          .fromTo(
-            note,
-            {
-              x: () => origin().x + random(-50, 50),
-              y: () => origin().y + random(-30, 30),
-              rotation: () => random(-30, 30),
-              scale: () => random(0.4, 0.7),
-              opacity: 0,
-            },
-            {
-              x: () => `+=${random(-260, 260)}`,
-              y: () => `-=${random(280, 520)}`,
-              rotation: () => random(-80, 80),
-              scale: () => random(0.9, 1.4),
-              duration: 4.2,
-              ease: 'sine.out',
-            },
-            0,
-          )
-          .to(note, { opacity: 1, duration: 0.6 }, 0)
-          .to(note, { opacity: 0, duration: 1.2 }, 3);
-        loops.push(sway, rise);
-      });
-    }, element);
+    // Particles are feedback for the guitar, not an always-running background.
+    const context = gsap.context(() => gsap.set(notes, { opacity: 0 }), element);
 
     const burst = (x: number, y: number, count = 9) => {
       for (let i = 0; i < count; i++) {
@@ -124,29 +84,18 @@ export function FlyingCode() {
         burst(x, y, 14);
       });
     };
-    const onPointer = (event: PointerEvent) => {
-      const rect = element.getBoundingClientRect();
-      burst(event.clientX - rect.left, event.clientY - rect.top);
-    };
-    const observer = new IntersectionObserver(([entry]) => {
-      loops.forEach((loop) => (entry.isIntersecting ? loop.resume() : loop.pause()));
-    });
-    observer.observe(element);
     window.addEventListener('film:reveal', onReveal);
     const onStrum = () => {
       const { x, y } = origin();
       burst(x, y, 12);
     };
     window.addEventListener('guitar:strum', onStrum);
-    stage?.addEventListener('pointerdown', onPointer);
     element.dataset.ready = 'true';
 
     return () => {
-      observer.disconnect();
       pluck?.kill();
       window.removeEventListener('film:reveal', onReveal);
       window.removeEventListener('guitar:strum', onStrum);
-      stage?.removeEventListener('pointerdown', onPointer);
       element.querySelectorAll('.is-burst').forEach((note) => {
         gsap.killTweensOf(note);
         note.remove();
