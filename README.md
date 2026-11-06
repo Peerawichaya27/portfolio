@@ -46,9 +46,10 @@ from formatting. Use a supported Node.js LTS release (22.13+ or 24+) for tooling
 
 ## Design direction
 
-Near-black engineering-document styling, Geist Sans and Geist Mono, quiet rules,
-and numbered work references. The career overview uses supplied facts; project
-diagrams are conceptual summaries rather than proprietary architecture. Motion
+Recording-studio styling connects the nickname Guitar with software engineering:
+warm charcoal, ivory text, muted amber, an original six-string guitar illustration,
+and numbered track references for projects. Geist Sans and Geist Mono keep technical
+content readable. Project diagrams are conceptual summaries rather than proprietary architecture. Motion
 is limited to one hero entrance and brief interaction feedback, with reduced-motion support.
 
 Design review workflow: [Unslop](https://heydamir.design/unslop), created by

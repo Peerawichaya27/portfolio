@@ -1,29 +1,29 @@
 @import 'tailwindcss';
 
 :root {
-  --bg: #07090d;
-  --surface: #0e1117;
-  --subtle: #171b23;
+  --bg: #0c0b0a;
+  --surface: #141210;
+  --subtle: #201d19;
   --border: #ffffff16;
-  --text: #eef0f5;
-  --muted: #a3a9b8;
-  --caption: #919aaa;
-  --accent: #82cbb9;
-  --button: #eef0f5;
-  --ink: #11141c;
+  --text: #efe9de;
+  --muted: #b3aa9d;
+  --caption: #a59b8e;
+  --accent: #d6ac73;
+  --button: #efe9de;
+  --ink: #18140f;
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
   color-scheme: dark;
 }
 [data-theme='light'] {
-  --bg: #f5f7fa;
+  --bg: #f7f4ee;
   --surface: #ffffff;
-  --subtle: #eceff4;
-  --border: #11182718;
-  --text: #111827;
-  --muted: #4b5565;
-  --caption: #586476;
-  --accent: #176e60;
-  --button: #111827;
+  --subtle: #ede7dd;
+  --border: #201a1418;
+  --text: #201a14;
+  --muted: #5e554a;
+  --caption: #6b6053;
+  --accent: #86591f;
+  --button: #201a14;
   --ink: #ffffff;
   color-scheme: light;
 }
@@ -1158,4 +1158,132 @@ h3 {
 }
 .theme-trigger::-webkit-details-marker {
   display: none;
+}
+
+/* A quiet studio faceplate: the instrument carries the warmth. */
+.studio-index {
+  color: var(--accent);
+  margin-right: 12px;
+}
+.studio-panel {
+  padding: 0 24px 24px;
+  overflow: hidden;
+}
+.studio-signature {
+  margin-inline: -24px;
+  background: var(--subtle);
+  padding: 24px;
+  border-bottom: 1px solid var(--border);
+}
+.studio-label,
+.studio-caption {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  font:
+    12px var(--font-geist-mono),
+    monospace;
+  color: var(--caption);
+}
+.studio-label span:first-child {
+  color: var(--text);
+}
+.guitar-drawing {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin-block: 24px;
+  overflow: visible;
+}
+.guitar-body {
+  fill: var(--surface);
+  stroke: var(--accent);
+  stroke-width: 1.5;
+}
+.guitar-neck,
+.guitar-head {
+  fill: var(--bg);
+  stroke: var(--caption);
+  stroke-width: 1;
+}
+.guitar-hole {
+  fill: var(--bg);
+  stroke: var(--accent);
+  stroke-width: 1;
+}
+.guitar-rosette {
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 1;
+  opacity: 0.4;
+}
+.guitar-string {
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 0.6;
+}
+.guitar-fret,
+.guitar-tuner {
+  stroke: var(--caption);
+  stroke-width: 1;
+}
+.guitar-bridge {
+  stroke: var(--accent);
+  stroke-width: 3;
+}
+.guitar-pin,
+.fret-marker {
+  fill: var(--caption);
+}
+.studio-role {
+  display: grid;
+  grid-template-columns: 72px 1fr;
+  gap: 16px;
+  padding-block: 24px;
+}
+.studio-role > .mono {
+  color: var(--caption);
+  padding-top: 4px;
+}
+.studio-role h2 {
+  font-size: 18px;
+  line-height: 1.5;
+  letter-spacing: 0;
+}
+.studio-role p {
+  font-size: 14px;
+  margin-top: 8px;
+}
+.document-ref {
+  border-left: 0;
+  padding-left: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+}
+.document-ref::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 1px;
+  background: var(--accent);
+}
+.project-card:hover .document-ref::before {
+  background: var(--text);
+}
+@media (max-width: 760px) {
+  .studio-label {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .studio-caption {
+    font-size: 12px;
+  }
+  .studio-role {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+  .studio-index {
+    margin-right: 8px;
+  }
 }

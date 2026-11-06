@@ -7,6 +7,7 @@ import {
   ShieldCheck,
   CornerDownRight,
 } from 'lucide-react';
+import { StudioSignature } from '@/components/studio-signature';
 import { ProjectCard } from '@/components/project-card';
 import { projects } from '@/data/projects';
 import { site, experience, skills, publications } from '@/data/site';
@@ -15,17 +16,18 @@ export default function Home() {
     <>
       <section className="container hero">
         <div className="hero-content">
-          <div className="eyebrow">Software engineer / Backend & cloud</div>
+          <div className="eyebrow">
+            <span className="studio-index">Side A</span> Software engineer / Backend & cloud
+          </div>
           <h1>
-            Backend systems
+            A good ear for detail.
+            <br />A backend engineer
             <br />
-            and the connections
-            <br />
-            between them
+            by trade
           </h1>
           <p className="hero-intro">
-            I’m <strong>Peerawichaya Pholwiset</strong>, a developer at PTT Digital working on
-            multi-tenant services and enterprise integrations.
+            I’m <strong>Guitar</strong> — Peerawichaya Pholwiset, a developer at PTT Digital working
+            on multi-tenant services and enterprise integrations.
           </p>
           <p className="hero-description">
             TypeScript, Node.js, PostgreSQL, and the deployment work that brings them together.
@@ -39,40 +41,17 @@ export default function Home() {
             </Link>
           </div>
         </div>
-        <aside className="profile-panel" aria-label="Engineering experience overview">
-          <div className="panel-top">
-            <span>Peerawichaya Pholwiset</span>
-            <span>Engineering record</span>
-          </div>
-          <p className="record-intro">
-            Backend development, from application workflows to deployment
-          </p>
-          <div className="record-entry">
-            <span className="record-year">2026</span>
+        <aside className="profile-panel studio-panel" aria-label="Guitar, software engineer">
+          <StudioSignature />
+          <div className="studio-role">
+            <span className="mono">Currently</span>
             <div>
-              <h2>PTT Digital</h2>
-              <p>Developer · Aug 2026–Present</p>
-              <span>Multi-tenant services / Kubernetes</span>
-            </div>
-          </div>
-          <div className="record-entry">
-            <span className="record-year">2025</span>
-            <div>
-              <h2>Gosoft (Thailand)</h2>
-              <p>Developer · Nov 2025–Jul 2026</p>
-              <span>Geospatial APIs / Enterprise identity</span>
-            </div>
-          </div>
-          <div className="record-entry">
-            <span className="record-year">2025</span>
-            <div>
-              <h2>SIIT, Thammasat University</h2>
-              <p>B.Eng. Computer Engineering · 2021–2025</p>
-              <span>Cloud computing / Cybersecurity</span>
+              <h2>Developer at PTT Digital</h2>
+              <p>Multi-tenant services, enterprise integrations, and cloud deployment</p>
             </div>
           </div>
           <Link href="/resume" className="panel-bottom">
-            Read the full engineering record <ArrowUpRight size={16} />
+            Read my engineering background <ArrowUpRight size={16} />
           </Link>
         </aside>
       </section>
@@ -87,7 +66,7 @@ export default function Home() {
       <section className="container section expertise">
         <div className="section-heading">
           <div>
-            <p className="eyebrow">01 / Expertise</p>
+            <p className="eyebrow">01 / The setup</p>
             <h2>APIs, deployment, and identity</h2>
           </div>
           <p>
@@ -130,7 +109,7 @@ export default function Home() {
         <div className="container section">
           <div className="section-heading">
             <div>
-              <p className="eyebrow">02 / Selected work</p>
+              <p className="eyebrow">02 / Selected tracks</p>
               <h2>
                 Service platforms, maps,
                 <br />
@@ -155,7 +134,7 @@ export default function Home() {
       <section className="container section" id="experience">
         <div className="experience-layout">
           <div>
-            <p className="eyebrow">03 / Experience</p>
+            <p className="eyebrow">03 / Session history</p>
             <h2>
               From Gosoft
               <br />
@@ -189,7 +168,7 @@ export default function Home() {
       <section className="container section skills-section">
         <div className="section-heading">
           <div>
-            <p className="eyebrow">04 / Technical skills</p>
+            <p className="eyebrow">04 / The toolkit</p>
             <h2>Languages, frameworks, and infrastructure</h2>
           </div>
         </div>
@@ -208,7 +187,7 @@ export default function Home() {
       </section>
       <section className="container section research-section">
         <div>
-          <p className="eyebrow">05 / Research & writing</p>
+          <p className="eyebrow">05 / Liner notes</p>
           <h2>
             Authentication
             <br />

@@ -22,7 +22,7 @@ const diagrams: Record<string, { label: string; parts: string[]; caption: string
 
 export function ProjectCard({ project, index }: { project: Project; index: number }) {
   const diagram = diagrams[project.slug];
-  const reference = `Work / ${String(index + 1).padStart(2, '0')}`;
+  const reference = `Track / ${String(index + 1).padStart(2, '0')}`;
 
   return (
     <Link href={`/projects/${project.slug}`} className={`project-card project-${project.slug}`}>

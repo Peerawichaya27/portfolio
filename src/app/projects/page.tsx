@@ -3,13 +3,13 @@ import { ProjectCard } from '@/components/project-card';
 export const metadata = {
   title: 'Projects',
   description:
-    'Selected professional work in backend engineering, geospatial analytics, and enterprise integrations.',
+    'Track list / Professional work in backend engineering, geospatial analytics, and enterprise integrations.',
 };
 export default function Projects() {
   return (
     <div className="container">
       <header className="page-intro">
-        <p className="eyebrow">Selected professional work</p>
+        <p className="eyebrow">Track list / Professional work</p>
         <h1>
           Service management,
           <br />

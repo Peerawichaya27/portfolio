@@ -16,8 +16,8 @@ export default function About() {
           with a security foundation
         </h1>
         <p>
-          I’m Peerawichaya Pholwiset, a software engineer focused on backend development, enterprise
-          integrations, and cloud-native deployment.
+          I’m Peerawichaya Pholwiset — known as Guitar — a software engineer focused on backend
+          development, enterprise integrations, and cloud-native deployment.
         </p>
       </header>
       <div className="page-content about-grid">
