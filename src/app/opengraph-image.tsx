@@ -6,24 +6,24 @@ export default function Image() {
   return new ImageResponse(
     <div
       style={{
-        background: '#05070c',
+        background: '#07090d',
         width: '100%',
         height: '100%',
         display: 'flex',
         flexDirection: 'column',
-        padding: '75px',
+        padding: '72px',
         color: '#f1f5f9',
         justifyContent: 'space-between',
       }}
     >
       <div style={{ display: 'flex', fontSize: 30 }}>
-        tarpp<span style={{ color: '#65dfc6' }}>.dev</span>
+        tarpp<span style={{ color: '#a3a9b8' }}>.dev</span>
       </div>
       <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
-        <div style={{ fontSize: 22, color: '#65dfc6' }}>SOFTWARE ENGINEER · BACKEND & CLOUD</div>
-        <div style={{ fontSize: 70, letterSpacing: '-3px' }}>Thoughtful code.</div>
-        <div style={{ fontSize: 70, letterSpacing: '-3px', color: '#65dfc6' }}>
-          Reliable systems.
+        <div style={{ fontSize: 22, color: '#a3a9b8' }}>Software engineer / Backend & cloud</div>
+        <div style={{ fontSize: 60, letterSpacing: '-1px' }}>Backend systems</div>
+        <div style={{ fontSize: 60, letterSpacing: '-1px', color: '#a3a9b8' }}>
+          and enterprise integrations
         </div>
       </div>
       <div style={{ fontSize: 23, color: '#a0aec1' }}>Peerawichaya Pholwiset</div>

@@ -33,14 +33,15 @@ export function Header() {
       <div className="container header-inner">
         <Link href="/" className="logo" onClick={() => setOpen(false)}>
           tarpp<span>.dev</span>
-          <span className="logo-dot" />
         </Link>
         <nav aria-label="Main navigation" className={open ? 'nav open' : 'nav'}>
           {links.map(([label, href]) => (
             <Link
               key={label}
               href={href}
-              aria-current={path === href ? 'page' : undefined}
+              aria-current={
+                (href === '/projects' ? path.startsWith(href) : path === href) ? 'page' : undefined
+              }
               onClick={() => setOpen(false)}
             >
               {label}
@@ -48,10 +49,10 @@ export function Header() {
           ))}
         </nav>
         <div className="header-actions">
-          <div className="theme-picker">
-            <button aria-label="Choose color theme" className="icon-button theme-trigger">
-              <Sun size={17} />
-            </button>
+          <details className="theme-picker">
+            <summary aria-label="Choose color theme" className="icon-button theme-trigger">
+              <Sun size={16} />
+            </summary>
             <div className="theme-options" aria-label="Color theme">
               {themeOptions.map(({ mode, Icon }) => (
                 <button key={mode} onClick={() => setTheme(mode)} aria-label={`${mode} theme`}>
@@ -60,7 +61,7 @@ export function Header() {
                 </button>
               ))}
             </div>
-          </div>
+          </details>
           <Link href="/resume" className="resume-link">
             Résumé <ArrowUpRight size={14} />
           </Link>

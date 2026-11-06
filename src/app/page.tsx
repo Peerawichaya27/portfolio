@@ -15,12 +15,17 @@ export default function Home() {
     <>
       <section className="container hero">
         <div className="hero-content">
-          <div className="eyebrow">
-            Software engineer / Backend & cloud
-          </div>
-          <h1>Backend systems<br />and the connections<br />between them</h1>
+          <div className="eyebrow">Software engineer / Backend & cloud</div>
+          <h1>
+            Backend systems
+            <br />
+            and the connections
+            <br />
+            between them
+          </h1>
           <p className="hero-intro">
-            I’m <strong>Peerawichaya Pholwiset</strong>, a developer at PTT Digital working on multi-tenant services and enterprise integrations.
+            I’m <strong>Peerawichaya Pholwiset</strong>, a developer at PTT Digital working on
+            multi-tenant services and enterprise integrations.
           </p>
           <p className="hero-description">
             TypeScript, Node.js, PostgreSQL, and the deployment work that brings them together.
@@ -35,12 +40,40 @@ export default function Home() {
           </div>
         </div>
         <aside className="profile-panel" aria-label="Engineering experience overview">
-          <div className="panel-top"><span>Peerawichaya Pholwiset</span><span>Engineering record</span></div>
-          <p className="record-intro">Backend development, from application workflows to deployment</p>
-          <div className="record-entry"><span className="record-year">2026</span><div><h2>PTT Digital</h2><p>Developer · Aug 2026–Present</p><span>Multi-tenant services / Kubernetes</span></div></div>
-          <div className="record-entry"><span className="record-year">2025</span><div><h2>Gosoft (Thailand)</h2><p>Developer · Nov 2025–Jul 2026</p><span>Geospatial APIs / Enterprise identity</span></div></div>
-          <div className="record-entry"><span className="record-year">2025</span><div><h2>SIIT, Thammasat University</h2><p>B.Eng. Computer Engineering · 2021–2025</p><span>Cloud computing / Cybersecurity</span></div></div>
-          <Link href="/resume" className="panel-bottom">Read the full engineering record <ArrowUpRight size={16} /></Link>
+          <div className="panel-top">
+            <span>Peerawichaya Pholwiset</span>
+            <span>Engineering record</span>
+          </div>
+          <p className="record-intro">
+            Backend development, from application workflows to deployment
+          </p>
+          <div className="record-entry">
+            <span className="record-year">2026</span>
+            <div>
+              <h2>PTT Digital</h2>
+              <p>Developer · Aug 2026–Present</p>
+              <span>Multi-tenant services / Kubernetes</span>
+            </div>
+          </div>
+          <div className="record-entry">
+            <span className="record-year">2025</span>
+            <div>
+              <h2>Gosoft (Thailand)</h2>
+              <p>Developer · Nov 2025–Jul 2026</p>
+              <span>Geospatial APIs / Enterprise identity</span>
+            </div>
+          </div>
+          <div className="record-entry">
+            <span className="record-year">2025</span>
+            <div>
+              <h2>SIIT, Thammasat University</h2>
+              <p>B.Eng. Computer Engineering · 2021–2025</p>
+              <span>Cloud computing / Cybersecurity</span>
+            </div>
+          </div>
+          <Link href="/resume" className="panel-bottom">
+            Read the full engineering record <ArrowUpRight size={16} />
+          </Link>
         </aside>
       </section>
       <div className="container stack-strip">
@@ -99,7 +132,9 @@ export default function Home() {
             <div>
               <p className="eyebrow">02 / Selected work</p>
               <h2>
-                Service platforms, maps,<br />and enterprise workflows
+                Service platforms, maps,
+                <br />
+                and enterprise workflows
               </h2>
             </div>
             <Link className="text-link" href="/projects">
@@ -122,7 +157,9 @@ export default function Home() {
           <div>
             <p className="eyebrow">03 / Experience</p>
             <h2>
-              From Gosoft<br />to PTT Digital
+              From Gosoft
+              <br />
+              to PTT Digital
             </h2>
             <p className="section-copy">
               Enterprise software, real constraints,
@@ -173,7 +210,9 @@ export default function Home() {
         <div>
           <p className="eyebrow">05 / Research & writing</p>
           <h2>
-            Authentication<br />and digital trust
+            Authentication
+            <br />
+            and digital trust
           </h2>
           <p className="section-copy">
             An interest in secure systems,
@@ -203,9 +242,7 @@ export default function Home() {
       </section>
       <section className="container contact">
         <p className="eyebrow">Contact</p>
-        <h2>
-          Let’s talk engineering
-        </h2>
+        <h2>Let’s talk engineering</h2>
         <div className="contact-bottom">
           <p>
             Open to engineering opportunities and conversations

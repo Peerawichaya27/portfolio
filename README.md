@@ -43,3 +43,13 @@ yarn build         # Verify the production build
 
 Generated files, dependencies, the lockfile, and the original `plan.md` are excluded
 from formatting. Use a supported Node.js LTS release (22.13+ or 24+) for tooling.
+
+## Design direction
+
+Near-black engineering-document styling, Geist Sans and Geist Mono, quiet rules,
+and numbered work references. The career overview uses supplied facts; project
+diagrams are conceptual summaries rather than proprietary architecture. Motion
+is limited to one hero entrance and brief interaction feedback, with reduced-motion support.
+
+Design review workflow: [Unslop](https://heydamir.design/unslop), created by
+[Damir Sokolovsky (@heydamir)](https://x.com/heydamir), licensed under CC BY 4.0.

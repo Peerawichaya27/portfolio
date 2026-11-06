@@ -16,11 +16,9 @@ export default function Resume() {
           <a href={`mailto:${site.email}`}>{site.email}</a> · <a href={site.github}>GitHub</a> ·{' '}
           <a href={site.linkedin}>LinkedIn</a>
         </p>
-        <div className="print-controls" style={{ marginTop: 25 }}>
+        <div className="print-controls">
           <PrintButton />
-          <p style={{ fontSize: 11, marginTop: 10 }}>
-            Use your browser’s “Save as PDF” option for a printable copy.
-          </p>
+          <p>Use your browser’s “Save as PDF” option for a printable copy.</p>
         </div>
       </header>
       <article className="page-content prose">
