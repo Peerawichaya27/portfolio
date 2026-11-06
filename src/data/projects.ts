@@ -3,83 +3,90 @@ export type Project = {
   title: string;
   subtitle: string;
   organization: string;
+  role: string;
   period: string;
   category: string;
   summary: string;
-  technologies: string[];
-  highlights: string[];
   context: string;
-  considerations: string[];
-  nodes: string[];
+  technologies: string[];
+  /** Taken from the résumé dated 2026-11-06; keep in sync with it. */
+  highlights: string[];
 };
+
 export const projects: Project[] = [
   {
     slug: 'aegis-core',
     title: 'Aegis Core',
-    subtitle: 'Multi-Tenant Service Management',
+    subtitle: 'Multi-Tenant Service Management Platform',
     organization: 'PTT Digital',
+    role: 'Developer',
     period: 'Aug 2026 — Present',
     category: 'Backend & Cloud',
     summary:
-      'Connecting service workflows, enterprise integrations, and tenant-scoped data in one platform.',
+      'REST APIs, tenant-scoped data, enterprise and telephony integrations, and Kubernetes deployment for a multi-tenant service management platform.',
+    context:
+      'A service management platform covering ticket and task workflows, SLA/OLA tracking, operational dashboards, and Excel reporting across tenants.',
     technologies: [
       'TypeScript',
+      'Node.js',
       'Express',
       'PostgreSQL',
+      'TypeORM',
       'Docker',
       'Kubernetes',
-      'TypeORM',
+      'GitLab',
       'Elasticsearch',
     ],
-    context:
-      'A service management platform supporting tickets and tasks, SLA/OLA tracking, dashboards, and reporting across tenants.',
     highlights: [
-      'REST APIs for ticket and task workflows, SLA/OLA tracking, dashboards, and reporting.',
-      'Tenant-scoped PostgreSQL access using TypeORM.',
-      'Enterprise and telephony integrations alongside S3-compatible storage.',
-      'Kubernetes deployment, logging, and testing.',
+      'Developed REST APIs for multi-tenant ticket and task workflows, SLA/OLA tracking, operational dashboards, and Excel reporting.',
+      'Designed PostgreSQL relational models with tenant-scoped access control, relationship constraints, and transactional updates to maintain data integrity.',
+      'Integrated enterprise and telephony platforms through APIs and callbacks, implementing OAuth2 authentication, JWT-signed payloads, idempotency, and timeout handling.',
+      'Containerized and independently deployed the backend to Kubernetes using Bash automation, with environment-based configuration and scheduled CronJobs for SLA alerts and data cleanup.',
+      'Implemented S3-compatible attachment storage with presigned upload/download URLs, file validation, and coordinated object-storage and database retention.',
+      'Maintained OpenAPI documentation for frontend integration, added structured logging with Elasticsearch delivery, and wrote unit, integration, and API contract tests.',
     ],
-    considerations: [
-      'Tenant boundaries are a central concern for data access.',
-      'Logging and testing support the operation of integrated services.',
-      'Deployment configuration connects application behavior to its runtime environment.',
-    ],
-    nodes: ['Service workflows', 'REST APIs', 'Tenant-scoped data'],
   },
   {
     slug: 'allmap',
     title: 'AllMap',
-    subtitle: 'Enterprise Geospatial Analytics',
+    subtitle: 'Enterprise Geospatial Analytics Platform',
     organization: 'Gosoft (Thailand)',
+    role: 'Developer',
     period: 'Nov 2025 — Jul 2026',
     category: 'Full-stack',
     summary:
-      'Bringing location data into focus through spatial APIs and interactive map experiences.',
-    technologies: ['React', 'NestJS', 'TypeScript', 'PostgreSQL', 'PostGIS', 'OpenLayers', 'AWS'],
+      'Geospatial APIs and interactive map features that support retail site-planning decisions.',
     context:
-      'An enterprise geospatial analytics platform combining location operations with map-based interfaces.',
+      'An enterprise geospatial analytics platform for proximity analysis, transit intersections, and location filtering.',
+    technologies: [
+      'React',
+      'NestJS',
+      'TypeScript',
+      'PostgreSQL',
+      'PostGIS',
+      'OpenLayers',
+      'AWS',
+      'Docker',
+    ],
     highlights: [
-      'Geospatial analysis APIs in a modular NestJS backend.',
-      'Hexagonal architecture for organizing backend responsibilities.',
-      'PostGIS-powered location operations.',
-      'React and OpenLayers map features.',
+      'Developed backend APIs for proximity analysis, transit intersections, and location filtering to support retail site-planning decisions.',
+      'Extended a modular NestJS backend using Hexagonal Architecture, separating business logic from database access and infrastructure integrations.',
+      'Built interactive React mapping features with OpenLayers, Zustand, and TanStack Query for exploring geospatial data.',
+      'Validated geospatial APIs, file-ingestion workflows, and authenticated requests using Postman.',
     ],
-    considerations: [
-      'Spatial operations need a database model suited to location data.',
-      'Backend boundaries help organize domain logic and integrations.',
-      'Map interactions connect backend analysis to a usable interface.',
-    ],
-    nodes: ['Interactive maps', 'Geospatial APIs', 'PostGIS operations'],
   },
   {
     slug: 'timeline-integration',
     title: 'Timeline',
-    subtitle: 'Information & Integration Platform',
+    subtitle: 'Information System & Integration Platform',
     organization: 'Gosoft (Thailand)',
+    role: 'Developer',
     period: 'Nov 2025 — Jul 2026',
     category: 'Secure Integrations',
     summary:
-      'Supporting enterprise user lifecycles with identity, approvals, and traceable workflows.',
+      'Identity-aware APIs and an admin application for user lifecycles, access approvals, and audit history.',
+    context:
+      'An information system and integration platform that lets corporate systems retrieve timeline, licensing, and user-status information.',
     technologies: [
       'React',
       'NestJS',
@@ -89,19 +96,11 @@ export const projects: Project[] = [
       'Active Directory',
       'Docker',
     ],
-    context:
-      'An enterprise information system connecting user lifecycle management, approvals, and identity integrations.',
     highlights: [
-      'User lifecycle and approval workflows with an internal React admin interface.',
-      'Audit history for enterprise workflows.',
-      'AWS Cognito OIDC, JWT, and role-based access control.',
-      'Active Directory, enterprise information integrations, and email notifications.',
+      'Developed backend APIs and an internal React administration application for user lifecycle management, access approvals, and audit history.',
+      'Implemented authentication and authorization using AWS Cognito OIDC, JWT, role-based access control, Active Directory integration, and API keys.',
+      'Built integration services enabling corporate systems to retrieve timeline, licensing, and user-status information.',
+      'Automated SMTP email notifications and validated protected APIs and cross-system integration workflows using Postman.',
     ],
-    considerations: [
-      'Authentication and role-based authorization address different access concerns.',
-      'Audit history supports traceability across approval workflows.',
-      'Identity integrations connect application workflows to enterprise systems.',
-    ],
-    nodes: ['Admin & approvals', 'Identity & APIs', 'Enterprise systems'],
   },
 ];

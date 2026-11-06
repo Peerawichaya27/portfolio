@@ -1,16 +1,8 @@
 import type { MetadataRoute } from 'next';
-import { projects } from '@/data/projects';
 export default function sitemap(): MetadataRoute.Sitemap {
+  const languages = { en: 'https://tarpp.dev', th: 'https://tarpp.dev/th' };
   return [
-    '',
-    '/projects',
-    '/about',
-    '/resume',
-    '/blog',
-    ...projects.map((p) => `/projects/${p.slug}`),
-  ].map((path) => ({
-    url: `https://tarpp.dev${path}`,
-    changeFrequency: 'monthly',
-    priority: path === '' ? 1 : 0.7,
-  }));
+    { url: languages.en, changeFrequency: 'monthly', priority: 1, alternates: { languages } },
+    { url: languages.th, changeFrequency: 'monthly', priority: 0.9, alternates: { languages } },
+  ];
 }
