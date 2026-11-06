@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { Providers, Header, Footer } from '@/components/shell';
 import { GeistSans } from 'geist/font/sans';
 import { GeistMono } from 'geist/font/mono';
+import { StudioMotion } from '@/components/studio-motion';
 import './globals.css';
 export const metadata: Metadata = {
   metadataBase: new URL('https://tarpp.dev'),
@@ -25,6 +26,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <Header />
           <main id="main">{children}</main>
           <Footer />
+          <StudioMotion />
         </Providers>
       </body>
     </html>

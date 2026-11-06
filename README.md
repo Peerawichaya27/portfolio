@@ -49,8 +49,9 @@ from formatting. Use a supported Node.js LTS release (22.13+ or 24+) for tooling
 Recording-studio styling connects the nickname Guitar with software engineering:
 warm charcoal, ivory text, muted amber, an original six-string guitar illustration,
 and numbered track references for projects. Geist Sans and Geist Mono keep technical
-content readable. Project diagrams are conceptual summaries rather than proprietary architecture. Motion
-is limited to one hero entrance and brief interaction feedback, with reduced-motion support.
+content readable. Project diagrams are conceptual summaries rather than proprietary architecture. Motion includes scroll-triggered project and section reveals, a reading-progress line,
+and a guitar illustration with layered depth, scroll rotation, and mouse tilt. Reduced-motion
+preferences disable motion, and printed content remains fully visible.
 
 Design review workflow: [Unslop](https://heydamir.design/unslop), created by
 [Damir Sokolovsky (@heydamir)](https://x.com/heydamir), licensed under CC BY 4.0.

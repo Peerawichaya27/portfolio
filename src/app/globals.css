@@ -1287,3 +1287,137 @@ h3 {
     margin-right: 8px;
   }
 }
+
+/* Physical depth stays inside the studio equipment and instrument. */
+.studio-panel {
+  box-shadow:
+    0 16px 32px #00000024,
+    inset 0 1px 0 #ffffff0a;
+}
+.studio-signature {
+  position: relative;
+  perspective: 900px;
+  background: linear-gradient(155deg, var(--subtle), var(--surface));
+}
+.studio-signature::before,
+.studio-signature::after {
+  content: '';
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: 1px solid var(--caption);
+  background: linear-gradient(45deg, transparent 42%, var(--caption) 43% 54%, transparent 55%);
+  opacity: 0.5;
+  bottom: 12px;
+}
+.studio-signature::before {
+  left: 12px;
+}
+.studio-signature::after {
+  right: 12px;
+}
+.guitar-stage {
+  transform-style: preserve-3d;
+}
+.guitar-drawing {
+  filter: drop-shadow(0 14px 6px #00000030);
+}
+.guitar-body {
+  fill: color-mix(in srgb, var(--accent) 24%, var(--surface));
+}
+.guitar-depth {
+  fill: color-mix(in srgb, var(--accent) 14%, var(--bg));
+  stroke: var(--caption);
+  stroke-width: 1;
+}
+.guitar-neck-depth {
+  fill: var(--bg);
+  stroke: var(--border);
+  stroke-width: 1;
+}
+.guitar-bridge {
+  stroke-width: 5;
+}
+.project-visual {
+  box-shadow:
+    inset 0 1px 0 #ffffff08,
+    inset 0 -3px 0 #00000018;
+}
+.system-node {
+  box-shadow:
+    0 4px 0 var(--bg),
+    0 5px 0 var(--border);
+}
+.scroll-progress {
+  display: none;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 2px;
+  background: var(--accent);
+  transform: scaleX(var(--scroll-progress, 0));
+  transform-origin: left;
+  pointer-events: none;
+  z-index: 30;
+}
+@media (prefers-reduced-motion: no-preference) {
+  [data-studio-motion='on'] .scroll-progress {
+    display: block;
+  }
+  [data-motion] {
+    transition:
+      opacity 600ms var(--ease),
+      translate 600ms var(--ease),
+      rotate 600ms var(--ease),
+      border-color 160ms var(--ease);
+  }
+  [data-motion='waiting'] {
+    opacity: 0;
+    translate: 0 24px;
+  }
+  .project-card[data-motion='waiting'] {
+    rotate: x 4deg;
+  }
+  [data-motion='entered'],
+  [data-motion='waiting']:focus-within {
+    opacity: 1;
+    translate: 0 0;
+    rotate: none;
+  }
+  .projects-grid {
+    perspective: 1200px;
+  }
+  .guitar-stage {
+    transform: rotateX(calc(12deg + var(--stage-scroll, 0) * 10deg - var(--tilt-y, 0) * 8deg))
+      rotateY(calc(-8deg + var(--tilt-x, 0) * 10deg)) rotateZ(-5deg)
+      translateY(calc(var(--stage-scroll, 0) * -20px));
+    transition: transform 180ms linear;
+  }
+  .project-card .system-diagram {
+    transition: transform 300ms var(--ease);
+  }
+  .project-card:hover .system-diagram,
+  .project-card:focus-visible .system-diagram {
+    transform: perspective(700px) rotateX(5deg) translateY(-3px);
+  }
+}
+@media (max-width: 760px) and (prefers-reduced-motion: no-preference) {
+  .guitar-stage {
+    transform: rotateX(10deg) rotateZ(-3deg) translateY(calc(var(--stage-scroll, 0) * -8px));
+  }
+}
+@media print {
+  [data-motion] {
+    opacity: 1 !important;
+    translate: none !important;
+    rotate: none !important;
+  }
+  .scroll-progress {
+    display: none !important;
+  }
+  .guitar-stage {
+    transform: none !important;
+  }
+}
