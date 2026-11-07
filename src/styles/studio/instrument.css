@@ -1,0 +1,331 @@
+.studio-signature {
+  padding: 24px;
+}
+.studio-label,
+.studio-caption {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  color: var(--caption);
+  font:
+    12px var(--font-geist-mono),
+    var(--font-thai),
+    monospace;
+}
+.guitar-drawing {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin-block: 24px;
+}
+.guitar-body {
+  fill: color-mix(in srgb, var(--accent) 24%, var(--surface));
+  stroke: var(--accent);
+  stroke-width: 1.5;
+}
+.guitar-depth {
+  fill: color-mix(in srgb, var(--accent) 14%, var(--bg));
+  stroke: var(--caption);
+  stroke-width: 1;
+}
+.guitar-neck-depth {
+  fill: var(--bg);
+  stroke: var(--border);
+  stroke-width: 1;
+}
+.guitar-neck,
+.guitar-head {
+  fill: var(--bg);
+  stroke: var(--caption);
+  stroke-width: 1;
+}
+.guitar-hole {
+  fill: var(--bg);
+  stroke: var(--accent);
+  stroke-width: 1;
+}
+.guitar-rosette {
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 1;
+  opacity: 0.4;
+}
+.guitar-string {
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 0.6;
+}
+.guitar-fret,
+.guitar-tuner {
+  stroke: var(--caption);
+  stroke-width: 1;
+}
+.guitar-bridge {
+  stroke: var(--accent);
+  stroke-width: 4;
+}
+.guitar-pin {
+  fill: var(--caption);
+}
+[data-studio-motion='on'] .scroll-progress {
+  display: block;
+}
+.guitar-world {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+.guitar-world canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+}
+.guitar-world[data-ready='true'] canvas {
+  opacity: 1;
+}
+.guitar-fallback {
+  position: absolute;
+  width: 60%;
+  right: 0;
+  top: 20%;
+  transform: rotate(-25deg);
+}
+.guitar-fallback .studio-signature {
+  background: none;
+  border: 0;
+}
+.guitar-fallback .studio-label,
+.guitar-fallback .studio-caption,
+.guitar-fallback .studio-signature::before,
+.guitar-fallback .studio-signature::after {
+  display: none;
+}
+.guitar-world[data-ready='true'] .guitar-fallback {
+  display: none;
+}
+.studio-manifesto {
+  padding-top: 128px;
+}
+.studio-manifesto > h2 {
+  font-size: clamp(36px, 4.5vw, 64px);
+  line-height: 1.1;
+  letter-spacing: -0.025em;
+  font-weight: 400;
+}
+.studio-manifesto > h2 span {
+  color: var(--muted);
+}
+@media screen {
+  [data-studio-motion='on'] .performance-scene {
+    height: 230svh;
+  }
+  [data-studio-motion='on'] .performance-stage {
+    position: sticky;
+    top: 80px;
+  }
+  [data-studio-motion='on'] .stage-word {
+    transform: translateX(calc(var(--performance-progress, 0) * -120px));
+  }
+  [data-studio-motion='on'] .stage-intro {
+    opacity: clamp(0, calc(1 - var(--performance-progress, 0) * 2.4), 1);
+    transform: translateY(calc(var(--performance-progress, 0) * -80px));
+  }
+  [data-studio-motion='on'] .stage-outro {
+    opacity: clamp(0, calc((var(--performance-progress, 0) - 0.5) * 3), 1);
+    transform: translateY(calc(40px - var(--performance-progress, 0) * 40px));
+  }
+}
+@media (max-width: 760px) {
+  .guitar-world {
+    top: 20%;
+    bottom: 0;
+  }
+  .guitar-fallback {
+    top: 30%;
+    width: 100%;
+  }
+  .studio-manifesto {
+    padding-top: 80px;
+  }
+  [data-studio-motion='on'] .performance-stage {
+    top: 72px;
+  }
+}
+@media print {
+  .guitar-world {
+    display: none;
+  }
+}
+
+.guitar-replay {
+  display: none;
+  position: absolute;
+  z-index: 4;
+  right: 32px;
+  top: 32px;
+  min-height: 44px;
+  border: 0;
+  border-bottom: 1px solid var(--border);
+  background: transparent;
+  color: var(--caption);
+  padding: 12px 0;
+  font:
+    12px var(--font-geist-mono),
+    monospace;
+}
+[data-studio-motion='on'] .guitar-world[data-ready='true'] + .guitar-replay {
+  display: inline-block;
+}
+.guitar-replay:hover {
+  color: var(--text);
+}
+@media (max-width: 760px) {
+  .guitar-replay {
+    top: auto;
+    bottom: 72px;
+    right: 24px;
+  }
+}
+@media print {
+  .guitar-replay {
+    display: none !important;
+  }
+}
+.spin-badge {
+  position: absolute;
+  z-index: 3;
+  right: clamp(24px, 6vw, 96px);
+  bottom: 88px;
+  width: 132px;
+  aspect-ratio: 1;
+  display: grid;
+  place-items: center;
+  color: var(--text);
+  pointer-events: none;
+}
+.spin-badge > * {
+  grid-area: 1 / 1;
+}
+.spin-badge-ring,
+.badge-disc,
+.badge-shine {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+.badge-disc {
+  position: relative;
+  background:
+    radial-gradient(circle, transparent 0 58%, #ffffff12 58.5%, transparent 59.5%),
+    radial-gradient(circle, transparent 0 78%, #ffffff12 78.5%, transparent 79.5%),
+    repeating-radial-gradient(circle, #121110 0 1px, #1d1a17 1.6px, #0f0e0d 2.6px), #111;
+  box-shadow:
+    0 18px 40px -12px #000d,
+    0 0 0 1px #ffffff18;
+}
+.badge-label {
+  position: absolute;
+  inset: 31%;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  color: var(--ink);
+  background: radial-gradient(
+    circle at 32% 28%,
+    color-mix(in srgb, var(--accent) 50%, #fff6e4),
+    var(--accent) 60%
+  );
+}
+.badge-label span {
+  margin-top: 46%;
+  font:
+    600 7px var(--font-geist-mono),
+    monospace;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.badge-label i {
+  position: absolute;
+  top: 12%;
+  left: 50%;
+  width: 5px;
+  height: 5px;
+  margin-left: -2.5px;
+  border-radius: 50%;
+  background: var(--ink);
+}
+.badge-shine {
+  background: conic-gradient(
+    from 20deg,
+    transparent 0 6%,
+    #ffffff26 11%,
+    transparent 17% 52%,
+    #ffffff1c 61%,
+    transparent 67%
+  );
+  -webkit-mask: radial-gradient(circle, transparent 0 31%, #000 31.5%);
+  mask: radial-gradient(circle, transparent 0 31%, #000 31.5%);
+}
+.badge-spindle {
+  width: 6%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: var(--bg);
+  box-shadow: inset 0 0 0 1px #ffffff30;
+}
+.studio-manifesto > h2 {
+  font-size: clamp(44px, 7vw, 112px);
+  line-height: 1;
+  letter-spacing: -0.045em;
+}
+@media screen {
+  [data-studio-motion='on'] .badge-disc {
+  }
+}
+@media (max-width: 760px) {
+  .spin-badge {
+    width: 96px;
+    right: 20px;
+    bottom: 128px;
+  }
+}
+@media print {
+  .spin-badge {
+    display: none !important;
+  }
+}
+.editor-preview .guitar-world {
+  top: 0;
+  bottom: 0;
+}
+.editor-preview .guitar-fallback {
+  width: 130%;
+  right: -15%;
+  top: 30%;
+}
+.editor-wrap .spin-badge {
+  right: auto;
+  left: -48px;
+  bottom: -36px;
+  width: 112px;
+  z-index: 3;
+  rotate: -10deg;
+}
+[data-studio-motion='on'] .guitar-replay {
+  display: inline-block;
+}
+[data-studio-motion='on'] .flying-code[data-ready='true'] {
+  display: block;
+}
+@media (max-width: 760px) {
+  .editor-wrap .spin-badge {
+    width: 76px;
+    left: -12px;
+    bottom: -28px;
+  }
+  .guitar-replay {
+    display: none !important;
+  }
+}

@@ -1,5 +1,6 @@
 import { ImageResponse } from 'next/og';
-export const alt = 'Peerawichaya Pholwiset — Full-Stack Engineer';
+import { site } from '@/content/site';
+export const alt = `${site.name} — ${site.roleTitle}`;
 export const size = { width: 1200, height: 630 };
 export const contentType = 'image/png';
 export default function Image() {
@@ -17,18 +18,19 @@ export default function Image() {
       }}
     >
       <div style={{ display: 'flex', fontSize: 30 }}>
-        tarpp<span style={{ color: '#b3aa9d' }}>.dev</span>
+        {site.wordmark.name}
+        <span style={{ color: '#b3aa9d' }}>{site.wordmark.suffix}</span>
       </div>
       <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
         <div style={{ fontSize: 22, color: '#b3aa9d' }}>
           Full-stack engineer / Frontend, backend & cloud
         </div>
-        <div style={{ fontSize: 60, letterSpacing: '-1px' }}>Guitar / Full-stack engineer</div>
+        <div style={{ fontSize: 60, letterSpacing: '-1px' }}>{site.socialHeadline}</div>
         <div style={{ fontSize: 60, letterSpacing: '-1px', color: '#b3aa9d' }}>
-          Interfaces, APIs & infrastructure
+          {site.socialSubheading}
         </div>
       </div>
-      <div style={{ fontSize: 23, color: '#a0aec1' }}>Peerawichaya Pholwiset</div>
+      <div style={{ fontSize: 23, color: '#a0aec1' }}>{site.name}</div>
     </div>,
     size,
   );

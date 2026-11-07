@@ -11,7 +11,9 @@
     "lint:fix": "eslint . --fix --max-warnings=0",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "check": "yarn format:check && yarn lint && yarn typecheck"
+    "check": "yarn format:check && yarn lint && yarn typecheck && yarn test",
+    "test": "node --import tsx --test tests/*.test.ts",
+    "test:routes": "node --import tsx scripts/verify-routes.ts"
   },
   "dependencies": {
     "geist": "^1.9.2",
@@ -32,8 +34,12 @@
     "eslint": "^9.39.5",
     "eslint-config-next": "^16.4.5",
     "eslint-config-prettier": "^10.1.8",
+    "happy-dom": "^21.0.4",
+    "lightningcss": "^1.33.0",
+    "postcss": "^8.5.32",
     "prettier": "^3.9.10",
     "tailwindcss": "^4.1.0",
+    "tsx": "^4.23.15",
     "typescript": "^5.9.0"
   },
   "packageManager": "yarn@1.22.22"

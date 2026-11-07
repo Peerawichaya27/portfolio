@@ -1,17 +1,12 @@
-export const LANGS = ['en', 'th'] as const;
-export type Lang = (typeof LANGS)[number];
-
-/** Base path of each language's home page. English is the default at the root. */
-export const HOME: Record<Lang, string> = { en: '/', th: '/th' };
-
-export const langFromPath = (pathname: string | null): Lang =>
-  pathname === '/th' || pathname?.startsWith('/th/') ? 'th' : 'en';
+import { experience, type RoleId } from '@/content/career';
+import type { SkillCategory } from '@/content/skills';
+import { site } from '@/content/site';
+import type { Lang } from './routing';
 
 const en = {
   meta: {
-    title: 'Peerawichaya Pholwiset — Full-Stack Engineer | tarpp.dev',
-    description:
-      'Full-stack engineer building React interfaces, backend APIs, enterprise integrations, and cloud-native deployments.',
+    title: `${site.name} — ${site.roleTitle} | ${site.brand}`,
+    description: site.description,
     locale: 'en_US',
   },
   nav: {
@@ -27,11 +22,11 @@ const en = {
     toDark: 'Switch to dark theme',
     language: 'Language',
     skip: 'Skip to content',
-    home: 'tarpp.dev home',
+    home: `${site.brand} home`,
   },
   hero: {
     label: 'Introduction',
-    eyebrow: 'Peerawichaya Pholwiset / Developer at PTT Digital',
+    eyebrow: `${site.name} / Developer at PTT Digital`,
     title: 'Full-stack',
     accent: 'engineer',
     pitch:
@@ -54,10 +49,8 @@ const en = {
     eyebrow: '01 / The approach',
     title: ['From API design', 'to deployment'],
     tag: 'Frontend / Backend / Cloud',
-    statement:
-      'I’m Peerawichaya Pholwiset, a full-stack engineer working as a developer at PTT Digital. I work across the stack, from frontend features and backend services to databases, deployment, and identity integrations.',
-    photoAlt:
-      'Peerawichaya Pholwiset standing in a sunny park in New York, with tall trees and city towers behind.',
+    statement: `I’m ${site.name}, a full-stack engineer working as a developer at PTT Digital. I work across the stack, from frontend features and backend services to databases, deployment, and identity integrations.`,
+    photoAlt: `${site.name} standing in a sunny park in New York, with tall trees and city towers behind.`,
     photoScene: 'Scene 02',
     photoPlace: 'New York',
   },
@@ -65,15 +58,24 @@ const en = {
     eyebrow: '02 / Work history',
     title: ['Engineering', 'experience'],
     current: 'Current',
-    /** Role summaries keyed by role period; English falls back to data/site. */
-    summaries: {} as Record<string, string>,
+    summaries: Object.fromEntries(experience.map((role) => [role.id, role.summary])) as Record<
+      RoleId,
+      string
+    >,
   },
   setup: {
     eyebrow: '03 / The setup',
     title: ['The stack', 'I build with'],
     copy: ['Languages, frameworks, and infrastructure', 'I’ve worked with across these platforms.'],
     nowPlaying: 'Now loading',
-    categories: {} as Record<string, string>,
+    categories: {
+      Programming: 'Programming',
+      Backend: 'Backend',
+      Frontend: 'Frontend',
+      Databases: 'Databases',
+      'Cloud & DevOps': 'Cloud & DevOps',
+      'Testing & API Tooling': 'Testing & API Tooling',
+    } satisfies Record<SkillCategory, string>,
   },
   research: {
     eyebrow: '04 / Publications',
@@ -93,7 +95,7 @@ const en = {
     copiedStatus: 'Email address copied',
   },
   film: {
-    presents: 'tarpp.dev presents',
+    presents: `${site.brand} presents`,
     kicker: 'Frontend · Backend · Cloud',
     role: 'Full-Stack Engineer',
     skip: 'Skip intro ↘',
@@ -104,7 +106,7 @@ export type Dictionary = typeof en;
 
 const th: Dictionary = {
   meta: {
-    title: 'Peerawichaya Pholwiset — วิศวกรซอฟต์แวร์ฟูลสแตก | tarpp.dev',
+    title: `${site.name} — วิศวกรซอฟต์แวร์ฟูลสแตก | ${site.brand}`,
     description:
       'วิศวกร Full-stack ที่พัฒนาอินเทอร์เฟซด้วย React, Backend API, การเชื่อมต่อระบบองค์กร และการ deploy ระบบบนคลาวด์',
     locale: 'th_TH',
@@ -122,11 +124,11 @@ const th: Dictionary = {
     toDark: 'เปลี่ยนเป็นธีมมืด',
     language: 'ภาษา',
     skip: 'ข้ามไปยังเนื้อหา',
-    home: 'หน้าแรก tarpp.dev',
+    home: `หน้าแรก ${site.brand}`,
   },
   hero: {
     label: 'แนะนำตัว',
-    eyebrow: 'Peerawichaya Pholwiset / Developer ที่ PTT Digital',
+    eyebrow: `${site.name} / Developer ที่ PTT Digital`,
     title: 'วิศวกร',
     accent: 'ฟูลสแตก',
     pitch:
@@ -146,10 +148,8 @@ const th: Dictionary = {
     eyebrow: '01 / แนวทางการทำงาน',
     title: ['ตั้งแต่ออกแบบ API', 'จนถึงการ deploy'],
     tag: 'Frontend / Backend / Cloud',
-    statement:
-      'Peerawichaya Pholwiset วิศวกร Full-stack ปัจจุบันทำงานในตำแหน่ง Developer ที่ PTT Digital ทำงานครอบคลุมทั้งระบบ ตั้งแต่ฟีเจอร์ฝั่ง Frontend และบริการฝั่ง Backend ไปจนถึงฐานข้อมูล การ deploy และการเชื่อมต่อระบบยืนยันตัวตน',
-    photoAlt:
-      'Peerawichaya Pholwiset ยืนอยู่ในสวนสาธารณะที่มีแดดจ้าในนิวยอร์ก มีต้นไม้สูงและตึกในเมืองอยู่ด้านหลัง',
+    statement: `${site.name} วิศวกร Full-stack ปัจจุบันทำงานในตำแหน่ง Developer ที่ PTT Digital ทำงานครอบคลุมทั้งระบบ ตั้งแต่ฟีเจอร์ฝั่ง Frontend และบริการฝั่ง Backend ไปจนถึงฐานข้อมูล การ deploy และการเชื่อมต่อระบบยืนยันตัวตน`,
+    photoAlt: `${site.name} ยืนอยู่ในสวนสาธารณะที่มีแดดจ้าในนิวยอร์ก มีต้นไม้สูงและตึกในเมืองอยู่ด้านหลัง`,
     photoScene: 'ฉากที่ 02',
     photoPlace: 'นิวยอร์ก',
   },
@@ -158,11 +158,11 @@ const th: Dictionary = {
     title: ['ประสบการณ์', 'การทำงาน'],
     current: 'ปัจจุบัน',
     summaries: {
-      'Aug 2026 — Present':
+      'ptt-developer':
         'พัฒนาและดูแลบริการฝั่ง Backend สำหรับแพลตฟอร์มองค์กร ครอบคลุมการออกแบบ API การออกแบบฐานข้อมูลเชิงสัมพันธ์ การเชื่อมต่อกับระบบภายนอก การ deploy คอนเทนเนอร์บน Kubernetes และการทดสอบอัตโนมัติ',
-      'Nov 2025 — Jul 2026':
+      'gosoft-developer':
         'พัฒนาเว็บแพลตฟอร์มองค์กรแบบ Full-stack ด้วย React และ NestJS ทั้ง Backend API ฟีเจอร์ฝั่ง Frontend การยืนยันตัวตนและการควบคุมสิทธิ์ และการเชื่อมต่อกับระบบขององค์กร',
-      'Jan 2025 — May 2025':
+      'gosoft-intern':
         'พัฒนาระบบ Backend ด้วย Java และ Spring Boot รวมถึงการเชื่อมต่อฐานข้อมูลและการปรับประสิทธิภาพ SQL สนับสนุนการ deploy บนคลาวด์ และการเขียนโค้ดอย่างปลอดภัย',
     },
   },
@@ -173,6 +173,9 @@ const th: Dictionary = {
     nowPlaying: 'กำลังโหลด',
     categories: {
       Programming: 'ภาษาโปรแกรม',
+      Backend: 'Backend',
+      Frontend: 'Frontend',
+      'Cloud & DevOps': 'Cloud & DevOps',
       Databases: 'ฐานข้อมูล',
       'Testing & API Tooling': 'การทดสอบและเครื่องมือ API',
     },
@@ -195,7 +198,7 @@ const th: Dictionary = {
     copiedStatus: 'คัดลอกอีเมลแล้ว',
   },
   film: {
-    presents: 'tarpp.dev นำเสนอ',
+    presents: `${site.brand} นำเสนอ`,
     kicker: 'Frontend · Backend · Cloud',
     role: 'วิศวกรฟูลสแตก',
     skip: 'ข้ามฉากเปิด ↘',

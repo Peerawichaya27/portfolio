@@ -1,0 +1,36 @@
+.terminal-interlude {
+  padding-block: 32px 96px;
+}
+.terminal-window {
+  max-width: 880px;
+  margin-inline: auto;
+  overflow: hidden;
+  border: 1px solid #ffffff1f;
+  border-radius: 14px;
+  background: var(--code-bg);
+  box-shadow: 0 40px 90px -40px #000;
+}
+.terminal-body {
+  margin: 0;
+  padding: 22px 24px 26px;
+  overflow-x: auto;
+  color: var(--code-text);
+  font:
+    13.5px/1.85 var(--font-geist-mono),
+    monospace;
+}
+.term-line {
+  display: block;
+  white-space: pre;
+}
+@media (max-width: 760px) {
+  .terminal-body {
+    padding: 16px;
+    font-size: 11px;
+  }
+}
+@media print {
+  .terminal-interlude {
+    display: none !important;
+  }
+}

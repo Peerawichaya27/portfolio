@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
-import { HOME, dictionaries, type Lang } from './dictionaries';
+import { dictionaries } from './dictionaries';
+import { HOME, LANGS, type Lang } from './routing';
 
 export function homeMetadata(lang: Lang): Metadata {
   const t = dictionaries[lang];
@@ -8,7 +9,7 @@ export function homeMetadata(lang: Lang): Metadata {
     description: t.meta.description,
     alternates: {
       canonical: HOME[lang],
-      languages: { en: HOME.en, th: HOME.th, 'x-default': HOME.en },
+      languages: { ...HOME, 'x-default': HOME[LANGS[0]] },
     },
     openGraph: { locale: t.meta.locale, title: t.meta.title, description: t.meta.description },
   };

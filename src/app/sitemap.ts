@@ -1,8 +1,11 @@
 import type { MetadataRoute } from 'next';
+import { LANGS, localizedUrls } from '@/i18n/routing';
 export default function sitemap(): MetadataRoute.Sitemap {
-  const languages = { en: 'https://tarpp.dev', th: 'https://tarpp.dev/th' };
-  return [
-    { url: languages.en, changeFrequency: 'monthly', priority: 1, alternates: { languages } },
-    { url: languages.th, changeFrequency: 'monthly', priority: 0.9, alternates: { languages } },
-  ];
+  const languages = localizedUrls();
+  return LANGS.map((lang) => ({
+    url: languages[lang],
+    changeFrequency: 'monthly',
+    priority: lang === LANGS[0] ? 1 : 0.9,
+    alternates: { languages },
+  }));
 }

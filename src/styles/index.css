@@ -1,0 +1,6 @@
+@import 'tailwindcss';
+@import './base.css';
+@import './shell.css';
+@import './home.css';
+@import './studio.css';
+@import './intro.css';

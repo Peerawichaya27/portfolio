@@ -1,0 +1,76 @@
+.contact-arrow.lucide {
+  width: clamp(64px, 12vw, 160px);
+  height: clamp(64px, 12vw, 160px);
+  stroke-width: 0.6;
+  color: var(--accent);
+}
+
+.contact-actions {
+  display: grid;
+  justify-items: end;
+  gap: 16px;
+}
+.copy-email {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 6px 6px 18px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--surface) 70%, transparent);
+}
+.copy-email-address {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 16px;
+}
+.copy-email-address:hover {
+  color: var(--accent);
+}
+.copy-email-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 40px;
+  padding: 8px 14px;
+  border: 0;
+  border-radius: 999px;
+  background: var(--accent);
+  color: var(--ink);
+  font-size: 13px;
+  font-weight: 500;
+}
+.contact-links {
+  display: flex;
+  gap: 20px;
+  font-size: 14px;
+  color: var(--muted);
+}
+.contact-links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.contact-links a:hover {
+  color: var(--accent);
+}
+@media (max-width: 760px) {
+  .contact-actions {
+    justify-items: start;
+    width: 100%;
+  }
+  .copy-email {
+    max-width: 100%;
+  }
+  .copy-email-address {
+    font-size: 14px;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .contact-arrow.lucide {
+    width: 44px;
+    height: 44px;
+  }
+}

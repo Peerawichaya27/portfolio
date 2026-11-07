@@ -1,0 +1,134 @@
+:root {
+  --code-bg: #0d0c0b;
+  --code-bar: #161412;
+  --code-line: #ffffff10;
+  --code-text: #d8d1c5;
+  --code-dim: #6e675e;
+  --tok-k: #d6ac73;
+  --tok-f: #8fc1e3;
+  --tok-v: #efe9de;
+  --tok-s: #a5c882;
+  --tok-n: #f2a07b;
+  --tok-p: #a59b8e;
+}
+.code-line {
+  display: block;
+  white-space: pre;
+  transition: background-color 200ms;
+}
+.code-line.is-typing {
+  background: #ffffff09;
+}
+.code-ln {
+  display: inline-block;
+  width: 3.5ch;
+  padding-right: 1.4ch;
+  text-align: right;
+  color: #4f4942;
+  user-select: none;
+}
+.code-line.is-typing .code-ln {
+  color: var(--tok-p);
+}
+.code-text {
+  display: inline-block;
+  vertical-align: top;
+  overflow: hidden;
+  white-space: pre;
+  width: calc(var(--w, var(--len)) * 1ch);
+}
+.code-caret {
+  display: none;
+  width: 0.6ch;
+  height: 1.25em;
+  vertical-align: -0.28em;
+  background: var(--tok-k);
+}
+.code-line.is-typing .code-caret,
+.code-line.is-done .code-caret,
+.code-caret.is-blinking {
+  display: inline-block;
+  animation: caret-blink 1s steps(1) infinite;
+}
+@keyframes caret-blink {
+  50% {
+    opacity: 0;
+  }
+}
+.tok-k {
+  color: var(--tok-k);
+}
+.tok-f {
+  color: var(--tok-f);
+}
+.tok-v {
+  color: var(--tok-v);
+}
+.tok-s {
+  color: var(--tok-s);
+}
+.tok-n {
+  color: var(--tok-n);
+}
+.tok-p {
+  color: var(--tok-p);
+}
+.tok-c {
+  color: var(--code-dim);
+  font-style: italic;
+}
+.editor-bar {
+  display: flex;
+  align-items: end;
+  gap: 14px;
+  height: 40px;
+  padding: 0 12px 0 14px;
+  background: var(--code-bar);
+  border-bottom: 1px solid var(--code-line);
+  color: var(--tok-p);
+}
+.editor-dots {
+  display: flex;
+  gap: 7px;
+  align-self: center;
+}
+.editor-dots i {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: #e0685e;
+}
+.editor-dots i:nth-child(2) {
+  background: #e0b04f;
+}
+.editor-dots i:nth-child(3) {
+  background: #6dbb6b;
+}
+.editor-tab {
+  display: flex;
+  align-items: center;
+  height: 31px;
+  margin-bottom: -1px;
+  padding: 0 14px;
+  border: 1px solid var(--code-line);
+  border-bottom: 0;
+  border-radius: 7px 7px 0 0;
+  background: var(--code-bg);
+  color: var(--tok-v);
+  font-size: 12px;
+}
+.term-cmd {
+  color: var(--tok-v);
+}
+.term-cmd .code-text::first-letter {
+  color: var(--tok-k);
+}
+.term-out {
+  color: var(--tok-p);
+}
+.term-ok {
+  color: var(--tok-s);
+}
+.term-dim {
+  color: var(--code-dim);
+}

@@ -1,0 +1,40 @@
+.flying-code {
+  display: none;
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+  overflow: hidden;
+  pointer-events: none;
+}
+.flying-note {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: -0.6em 0 0 -1em;
+  white-space: nowrap;
+  opacity: 0;
+  font:
+    600 clamp(13px, 1.3vw, 18px) var(--font-geist-mono),
+    monospace;
+}
+.flying-note > span {
+  display: inline-block;
+}
+.flying-note.tone-0 {
+  color: var(--accent);
+}
+.flying-note.tone-1 {
+  color: var(--tok-f);
+}
+.flying-note.tone-2 {
+  color: var(--text);
+  font-size: clamp(11px, 1vw, 14px);
+}
+.flying-note.is-burst {
+  font-size: clamp(15px, 1.6vw, 22px);
+}
+@media print {
+  .flying-code {
+    display: none !important;
+  }
+}

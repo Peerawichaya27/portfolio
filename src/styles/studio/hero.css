@@ -1,0 +1,326 @@
+.scroll-progress {
+  display: none;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 2px;
+  background: var(--accent);
+  transform: scaleX(var(--scroll-progress, 0));
+  transform-origin: left;
+  pointer-events: none;
+  z-index: 30;
+}
+@media print {
+  .scroll-progress {
+    display: none !important;
+  }
+}
+.scroll-progress {
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent), #fff1d6);
+}
+.performance-page {
+  --stage-height: calc(100svh - 80px);
+}
+.performance-scene {
+  height: calc(100svh - 80px);
+  position: relative;
+}
+.performance-stage {
+  height: var(--stage-height);
+  min-height: 620px;
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background: var(--bg);
+}
+.stage-word {
+  position: absolute;
+  top: 4%;
+  left: 50%;
+  translate: -50% 0;
+  font-size: clamp(160px, 29vw, 470px);
+  line-height: 0.85;
+  font-weight: 500;
+  letter-spacing: -0.04em;
+  color: var(--subtle);
+  user-select: none;
+}
+.stage-intro {
+  position: relative;
+  z-index: 2;
+  padding-top: clamp(96px, 17vh, 180px);
+  pointer-events: none;
+}
+.stage-intro .eyebrow {
+  max-width: 260px;
+  line-height: 1.7;
+}
+.stage-intro h1 {
+  font-size: clamp(48px, 6vw, 88px);
+  letter-spacing: -0.035em;
+  line-height: 0.98;
+  font-weight: 400;
+}
+.stage-intro h1 span {
+  color: var(--accent);
+}
+.stage-intro > p:not(.eyebrow) {
+  font-size: 18px;
+  margin-top: 24px;
+  line-height: 1.7;
+}
+.stage-outro {
+  position: absolute;
+  inset: auto 0 23%;
+  z-index: 2;
+  opacity: 0;
+  pointer-events: none;
+}
+.stage-outro h2 {
+  font-size: clamp(48px, 6vw, 88px);
+  font-weight: 400;
+  letter-spacing: -0.03em;
+}
+.stage-outro > p:last-child {
+  margin-top: 24px;
+  font-size: 16px;
+}
+.stage-bottom {
+  position: absolute;
+  bottom: 32px;
+  left: 0;
+  right: 0;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  font:
+    12px var(--font-geist-mono),
+    monospace;
+  color: var(--caption);
+}
+.stage-bottom a {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+@media (max-width: 760px) {
+  .performance-page {
+    --stage-height: calc(100svh - 72px);
+  }
+  .performance-stage {
+    min-height: 660px;
+  }
+  .stage-word {
+    top: 30%;
+    font-size: 38vw;
+  }
+  .stage-intro {
+    padding-top: 48px;
+  }
+  .stage-intro h1 {
+    font-size: clamp(52px, 12vw, 72px);
+  }
+  .stage-intro .eyebrow {
+    max-width: none;
+    font-size: 12px;
+    margin-bottom: 20px;
+  }
+  .stage-intro > p:not(.eyebrow) {
+    font-size: 14px;
+    margin-top: 20px;
+  }
+  .stage-intro > p {
+    max-width: 260px;
+  }
+  .stage-bottom {
+    bottom: 24px;
+    font-size: 12px;
+  }
+  .stage-bottom > span:first-child {
+    display: none;
+  }
+  .stage-outro {
+    bottom: 30%;
+  }
+  .stage-outro h2 {
+    font-size: 48px;
+  }
+  .stage-outro > p:last-child {
+    font-size: 14px;
+  }
+}
+@media print {
+  .performance-scene {
+    height: auto !important;
+  }
+  .performance-stage {
+    position: static !important;
+    height: auto;
+    min-height: 0;
+  }
+  .stage-word,
+  .stage-bottom,
+  .stage-outro {
+    display: none;
+  }
+  .stage-intro {
+    opacity: 1 !important;
+    transform: none !important;
+    padding-block: 32px;
+  }
+}
+
+.stage-intro:focus-within {
+  opacity: 1 !important;
+  transform: none !important;
+}
+.performance-stage:has(.stage-intro:focus-within) .stage-outro {
+  opacity: 0 !important;
+}
+@media screen and (max-height: 700px) and (min-width: 761px) {
+  .performance-stage {
+    min-height: 520px;
+  }
+  .stage-intro {
+    padding-top: 48px;
+  }
+  .stage-intro h1 {
+    font-size: 72px;
+  }
+  .stage-intro > p:not(.eyebrow) {
+    font-size: 14px;
+    margin-top: 20px;
+  }
+}
+
+.stage-intro h1 {
+  max-width: 640px;
+}
+.stage-intro > p:not(.eyebrow) {
+  max-width: 340px;
+  font-size: 16px;
+}
+@media (max-width: 760px) {
+  .stage-intro h1 {
+    font-size: clamp(40px, 10vw, 52px);
+    max-width: 320px;
+  }
+  .stage-intro > p:not(.eyebrow) {
+    max-width: 280px;
+    font-size: 14px;
+  }
+}
+.stage-word {
+  display: flex;
+  perspective: 1400px;
+  color: transparent;
+  -webkit-text-stroke: 1px color-mix(in srgb, var(--accent) 38%, transparent);
+  background: none;
+}
+.stage-letter {
+  display: inline-block;
+}
+.stage-letter > span {
+  display: inline-block;
+  transform-origin: 50% 50% -0.28em;
+  background: linear-gradient(180deg, var(--subtle) 20%, transparent 95%);
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+.stage-vignette {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background:
+    radial-gradient(
+      ellipse at 60% 50%,
+      transparent 45%,
+      color-mix(in srgb, var(--bg) 85%, transparent) 100%
+    ),
+    linear-gradient(180deg, transparent 75%, var(--bg));
+}
+@media print {
+  .stage-vignette {
+    display: none !important;
+  }
+}
+.stage-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 32px;
+}
+.stage-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 48px;
+  padding: 12px 22px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 500;
+  pointer-events: auto;
+  transition:
+    background-color 200ms var(--ease),
+    border-color 200ms var(--ease),
+    color 200ms var(--ease),
+    transform 200ms var(--ease);
+}
+.stage-button.primary {
+  background: var(--accent);
+  color: var(--ink);
+}
+.stage-button.primary:hover {
+  background: color-mix(in srgb, var(--accent) 80%, #fff);
+}
+.stage-button.ghost {
+  border: 1px solid color-mix(in srgb, var(--text) 25%, transparent);
+  background: color-mix(in srgb, var(--bg) 50%, transparent);
+  backdrop-filter: blur(8px);
+  color: var(--text);
+}
+.stage-button.ghost:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+.stage-button:active {
+  transform: scale(0.97);
+}
+@media (max-width: 760px) {
+  .stage-actions {
+    margin-top: 20px;
+  }
+  .stage-button {
+    min-height: 44px;
+    padding: 10px 18px;
+    font-size: 13px;
+  }
+}
+@media print {
+  .stage-actions {
+    display: none;
+  }
+}
+@media (max-width: 760px) {
+  .stage-word {
+    top: 54%;
+  }
+}
+.stage-word {
+  font-size: clamp(90px, 15vw, 260px);
+  top: 3%;
+}
+.stage-intro {
+  z-index: 3;
+}
+@media (max-width: 760px) {
+  .stage-word {
+    top: 56%;
+    font-size: 19vw;
+  }
+}
